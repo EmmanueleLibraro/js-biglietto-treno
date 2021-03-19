@@ -9,14 +9,32 @@ var costoBigliettoPerKm = 0.21;
 var kmDaPercorrere = parseInt (prompt('Chilometri da percorrere') );
 
 var costoTotaleSenzaSconto = kmDaPercorrere * costoBigliettoPerKm;
-console.log("Costo senza sconti:", costoTotaleSenzaSconto);
+
 
 //MINORENNI
 var age1 = prompt("Qual'è la tua età?");
 
-//SCONTO BIGLIETTO
-var b = 20;
-var costoFinale = costoTotaleSenzaSconto - ( costoTotaleSenzaSconto / 100 * b);
-var periodico = costoFinale.toFixed(2);
-console.log('Costo con sconto:',  costoFinale);
+//SCONTO BIGLIETTO MINORENNE
+var sconto = null;
+
+if (age1 < 18 ){
+    sconto = 20;
+}
+
+if (age1 > 65 ){
+    sconto = 40;
+}
+
+if (sconto === null){
+    console.log("Costo senza sconti:", costoTotaleSenzaSconto.toFixed(2) );
+} else{
+    var costoFinaleSconto1 = costoTotaleSenzaSconto - ( costoTotaleSenzaSconto / 100 * sconto);
+    console.log('Costo con sconto:',  costoFinaleSconto1.toFixed(2) );
+}
+
+
+
+
+
+
 
